@@ -37,12 +37,23 @@ export default function Home() {
       content: `
           <p>Merhaba, ben Efe Çakmak, Eötvös Loránd Üniversitesi'nde Psikoloji öğrencisiyim. Bu çalışmaya katıldığınız için teşekkür ederim. Anketin ilişkiler üzerine olduğunu unutmayın. Çalışma yalnızca "Deney Metodları" dersi kapsamında hazırlanmıştır; bilimsel bir araştırma veya yayın amacı taşımamaktadır.</p>
           <br>
-          <p>Yanıtlarınız psikoloji alanındaki bilgi birikimimizi artırmak için değerlidir. Katılım tamamen gönüllülük esasına dayanmaktadır ve yanıtlarınız gizli tutulacaktır. Anket birkaç sorudan oluşmakta olup yaklaşık 5-10 dakikanızı alacaktır. Soruların doğru ya da yanlış cevabı yoktur. İstediğiniz anda anketten ayrılabilirsiniz; bu durumda yanıtlarınız kaydedilmeyecektir. Ankete yalnızca 18 yaş ve üzeri katılımcılar katılabilir ve devam ettiğiniz takdirde 18 yaşınızdan büyük olduğunuzu onaylıyorsunuz demektir.</p>
+          <p>Yanıtlarınız psikoloji alanındaki bilgi birikimimizi artırmak için değerlidir. Katılım tamamen gönüllülük esasına dayanmaktadır ve yanıtlarınız gizli tutulacaktır. Anket birkaç sorudan oluşmakta olup yaklaşık 5-10 dakikanızı alacaktır. Soruların doğru ya da yanlış cevabı yoktur. İstediğiniz anda anketten ayrılabilirsiniz; bu durumda yanıtlarınız kaydedilmeyecektir.</p>
           <br>
           <p>Herhangi bir sorunuz veya endişeniz olursa, çalışmayı yürüten hocam Dr. Mihály Berkics'e <a href="mailto:berkics.mihaly@ppk.elte.hu">berkics.mihaly@ppk.elte.hu</a> adresinden ulaşabilirsiniz.</p>
       `,
       headerBannerUrl: "/neutral-banner-2.png",
       footerBannerUrl: "/neutral-banner-2.png",
+    },
+    {
+      id: "q2",
+      type: "question",
+      questionType: "multiple-choice",
+      title: "18 yaşından büyük olduğumu ve bu çalışmaya rızam dahilinde istekli bir şekilde katıldığımı onaylıyorum.",
+      choices: [
+        { id: "feature1", text: "Evet" },
+        { id: "feature2", text: "Hayır" },
+      ],
+      required: true
     },
     {
       id: "demografik",
@@ -145,7 +156,6 @@ export default function Home() {
       maxValue: 7,
       minLabel: "Kesinlikle katılmıyorum",
       maxLabel: "Kesinlikle katılıyorum",
-      required: true
     },
     {
       id: "q7",
@@ -156,7 +166,6 @@ export default function Home() {
       maxValue: 7,
       minLabel: "Kesinlikle katılmıyorum",
       maxLabel: "Kesinlikle katılıyorum",
-      required: true
     },
     {
       id: "q8",
@@ -168,7 +177,6 @@ export default function Home() {
       minLabel: "Kesinlikle katılmıyorum",
       maxLabel: "Kesinlikle katılıyorum",
       entry: "entry.1855367148", 
-      required: true
     },
     {
       id: "q9",
@@ -179,7 +187,6 @@ export default function Home() {
       maxValue: 7,
       minLabel: "Kesinlikle katılmıyorum",
       maxLabel: "Kesinlikle katılıyorum",
-      required: true
     },
     {
       id: "q10",
@@ -190,7 +197,6 @@ export default function Home() {
       maxValue: 7,
       minLabel: "Kesinlikle katılmıyorum",
       maxLabel: "Kesinlikle katılıyorum",
-      required: true
     },
     {
       id: "q11",
@@ -201,7 +207,6 @@ export default function Home() {
       maxValue: 7,
       minLabel: "Kesinlikle katılmıyorum",
       maxLabel: "Kesinlikle katılıyorum",
-      required: true
     },
     {
       id: "q12",
@@ -212,7 +217,6 @@ export default function Home() {
       maxValue: 7,
       minLabel: "Kesinlikle katılmıyorum",
       maxLabel: "Kesinlikle katılıyorum",
-      required: true
     },
     {
       id: "q13",
@@ -223,7 +227,6 @@ export default function Home() {
       maxValue: 7,
       minLabel: "Kesinlikle katılmıyorum",
       maxLabel: "Kesinlikle katılıyorum",
-      required: true
     },
     // PRIMING
     {
@@ -244,7 +247,6 @@ export default function Home() {
       maxValue: 7,
       minLabel: "Kesinlikle katılmıyorum",
       maxLabel: "Kesinlikle katılıyorum",
-      required: true
     },
     {
       id: "ad2",
@@ -263,7 +265,6 @@ export default function Home() {
       minLabel: "Kesinlikle katılmıyorum",
       maxLabel: "Kesinlikle katılıyorum",
       entry: "entry.915106475",
-      required: true
     },
     {
       id: "q16",
@@ -275,7 +276,6 @@ export default function Home() {
       minLabel: "Kesinlikle katılmıyorum",
       maxLabel: "Kesinlikle katılıyorum",
       entry: "entry.2000712077",
-      required: true
     },
     {
       id: "q17",
@@ -287,7 +287,6 @@ export default function Home() {
       minLabel: "Kesinlikle katılmıyorum",
       maxLabel: "Kesinlikle katılıyorum",
       entry: "entry.828228927",
-      required: true
     },
     {
       id: "q18",
@@ -298,7 +297,6 @@ export default function Home() {
       maxValue: 7,
       minLabel: "Kesinlikle katılmıyorum",
       maxLabel: "Kesinlikle katılıyorum",
-      required: true
     },
     {
       id: "q19",
@@ -310,7 +308,6 @@ export default function Home() {
       minLabel: "Kesinlikle katılmıyorum",
       maxLabel: "Kesinlikle katılıyorum",
       entry: "entry.703948699",
-      required: true
     },
     // PRIMING 2
     {
@@ -339,7 +336,6 @@ export default function Home() {
       minLabel: "Kesinlikle katılmıyorum",
       maxLabel: "Kesinlikle katılıyorum",
       entry: "entry.2060042492",
-      required: true
     },
     {
       id: "q21",
@@ -350,7 +346,6 @@ export default function Home() {
       maxValue: 7,
       minLabel: "Kesinlikle katılmıyorum",
       maxLabel: "Kesinlikle katılıyorum",
-      required: true
     },
     {
       id: "q22",
@@ -362,7 +357,6 @@ export default function Home() {
       minLabel: "Kesinlikle katılmıyorum",
       maxLabel: "Kesinlikle katılıyorum",
       entry: "entry.477271740",
-      required: true
     },
     {
       id: "q23",
@@ -374,7 +368,6 @@ export default function Home() {
       minLabel: "Kesinlikle katılmıyorum",
       maxLabel: "Kesinlikle katılıyorum",
       entry: "entry.116113645",
-      required: true
     },
     {
       id: "q24",
@@ -385,7 +378,6 @@ export default function Home() {
       maxValue: 7,
       minLabel: "Kesinlikle katılmıyorum",
       maxLabel: "Kesinlikle katılıyorum",
-      required: true
     },
     {
       id: "q25",
@@ -396,7 +388,6 @@ export default function Home() {
       maxValue: 7,
       minLabel: "Kesinlikle katılmıyorum",
       maxLabel: "Kesinlikle katılıyorum",
-      required: true
     },
     {
       id: "q26",
@@ -407,7 +398,6 @@ export default function Home() {
       maxValue: 7,
       minLabel: "Kesinlikle katılmıyorum",
       maxLabel: "Kesinlikle katılıyorum",
-      required: true
     },
     {
       id: "q27",
@@ -419,7 +409,6 @@ export default function Home() {
       minLabel: "Kesinlikle katılmıyorum",
       maxLabel: "Kesinlikle katılıyorum",
       entry: "entry.1197238886",
-      required: true
     },
     {
       id: "q28",
@@ -431,7 +420,6 @@ export default function Home() {
       minLabel: "Kesinlikle katılmıyorum",
       maxLabel: "Kesinlikle katılıyorum",
       entry: "entry.1318972100",
-      required: true
     },
     {
       id: "q29",
@@ -442,7 +430,6 @@ export default function Home() {
       maxValue: 7,
       minLabel: "Kesinlikle katılmıyorum",
       maxLabel: "Kesinlikle katılıyorum",
-      required: true
     },
     {
       id: "q30",
@@ -454,7 +441,6 @@ export default function Home() {
       minLabel: "Kesinlikle katılmıyorum",
       maxLabel: "Kesinlikle katılıyorum",
       entry: "entry.1153949144",
-      required: true
     },
   ]
 

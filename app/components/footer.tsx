@@ -15,7 +15,7 @@ export function Footer({
     <div className="w-full">
       {/* Banner above footer */}
       {bannerUrl && (
-        <Banner imageUrl={bannerUrl} height="h-20" fit="contain" infoUrl="https://example.com/footer-info" />
+        <Banner imageUrl={bannerUrl} height="h-20" fit="contain" infoUrl="https://ads.google.com" />
       )}
       {/* Footer content */}
       <div className="p-4 border-t">
