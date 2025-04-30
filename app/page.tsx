@@ -51,7 +51,7 @@ export default function Home() {
       title: "18 yaşından büyük olduğumu ve bu çalışmaya rızam dahilinde istekli bir şekilde katıldığımı onaylıyorum.",
       choices: [
         { id: "feature1", text: "Evet" },
-        { id: "feature2", text: "Hayır" },
+        { id: "Hayır", text: "Hayır" },
       ],
       required: true
     },
@@ -75,7 +75,7 @@ export default function Home() {
       required: true
     },
     {
-      id: "q2",
+      id: "q100",
       type: "question",
       questionType: "multiple-choice",
       title: "Cinsiyetiniz nedir?",
@@ -156,6 +156,7 @@ export default function Home() {
       maxValue: 7,
       minLabel: "Kesinlikle katılmıyorum",
       maxLabel: "Kesinlikle katılıyorum",
+      required: true
     },
     {
       id: "q7",

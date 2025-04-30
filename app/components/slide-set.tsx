@@ -9,6 +9,9 @@ import { Popup } from "./popup"
 import { Button } from "@/components/ui/button"
 
 
+const CONSENT_ID = "q2";
+const DECLINE_VALUE = "Hayır";
+
 type SlideType = "information" | "question" | "popup"
 
 interface BaseSlide {
@@ -65,6 +68,7 @@ export function SlideSet({ slides, onComplete, onBannerChange }: SlideSetProps) 
   const [currentError, setCurrentError] = useState<string>("")
   const [canProceed, setCanProceed] = useState(false)
   const [popupTimerComplete, setPopupTimerComplete] = useState(false)
+  const [optedOut, setOptedOut] = useState(false);   
   const containerRef = useRef<HTMLDivElement>(null)
 
   const currentSlide = slides[currentSlideIndex]
@@ -121,16 +125,21 @@ export function SlideSet({ slides, onComplete, onBannerChange }: SlideSetProps) 
   }
 
   const handleNext = async () => {
-    // Don't proceed if we can't
+    if (optedOut){ 
+      setShowThankYouModal(optedOut); 
+      setCanProceed(!optedOut);
+      return;
+    }
+
     if (!canProceed) {
-      // For questions, validate and show error
+
       if (currentSlide.type === "question") {
         validateCurrentSlide()
       }
       return
     }
 
-    // For all slides, validate before proceeding
+
     if (!validateCurrentSlide()) {
       return
     }
@@ -158,26 +167,30 @@ export function SlideSet({ slides, onComplete, onBannerChange }: SlideSetProps) 
     }
   }
 
-// SlideSet içinde
+
 const handleAnswer = (id: string, answer: string | number) => {
     setCurrentError("")
   
-    // Soruyu bul
+    console.log("Answering question:", id, answer)
+    
     const slide = slides.find((s) => s.id === id) as QuestionSlide | undefined
-  
-    // Cevabı HER ZAMAN kaydet
     setAnswers((prev) => ({
       ...prev,
-      [id]: [slide?.entry ?? "", answer], // entry yoksa "" bırak
+      [id]: [slide?.entry ?? "", answer],
     }))
+
+    if (id === CONSENT_ID) {
+      const declined = answer === DECLINE_VALUE;
   
-    // Geçerli cevap mı?
+      setOptedOut(declined);      
+      return;
+    }
     const isValid =
       answer !== undefined &&
       answer !== "" &&
       !(typeof answer === "number" && isNaN(answer))
   
-    const isRequired = slide?.required !== false // undefined ⇒ zorunlu
+    const isRequired = slide?.required !== false
   
     setCanProceed(isRequired ? isValid : true)
   }
@@ -297,14 +310,23 @@ const handleAnswer = (id: string, answer: string | number) => {
       {showThankYouModal && (
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
           <div className="bg-white p-6 rounded-lg shadow-lg max-w-md w-full">
-            <h2 className="text-2xl font-bold mb-4">{isSuccess ? "Teşekkür Ederiz!" : "Hata Oluştu"}</h2>
+          <h2 className="text-2xl font-bold mb-4">
+              {optedOut
+                ? "Katıldığınız için teşekkürler!"
+                : isSuccess
+                  ? "Teşekkür Ederiz!"
+                  : "Hata Oluştu"}
+            </h2>
+
             <p className="mb-6">
-              {isSuccess
-                ? "Anketinizi başarıyla gönderdiniz. Katılımınız için teşekkür ederiz."
-                : "Anketinizi gönderirken bir hata oluştu. Lütfen tekrar deneyin."}
+              {optedOut
+                ? "Vaktinizi ayırdığınız için teşekkür ederiz."
+                : isSuccess
+                  ? "Anketinizi başarıyla gönderdiniz. Katılımınız için teşekkür ederiz."
+                  : "Anketinizi gönderirken bir hata oluştu. Lütfen tekrar deneyin."}
             </p>
             <div className="flex justify-end">
-              <Button onClick={closeThankYouModal}>Close</Button>
+              <Button onClick={closeThankYouModal}>Kapat</Button>
             </div>
           </div>
         </div>

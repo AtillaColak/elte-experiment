@@ -50,7 +50,8 @@ export function Question({
   showNextButton = true,
   error,
 }: QuestionProps) {
-  const [answer, setAnswer] = useState<string | number>(currentAnswer || "")
+  const initialAnswer = currentAnswer !== undefined ? currentAnswer : type === "scale" ? minValue : ""
+  const [answer, setAnswer] = useState<string | number>(initialAnswer)
   const [localError, setLocalError] = useState<string>("")
 
   const handleAnswer = (value: string | number) => {
