@@ -48,11 +48,11 @@ interface PopupSlide extends BaseSlide {
   altText?: string
 }
 
-type Slide = InformationSlide | QuestionSlide | PopupSlide
+export type Slide = InformationSlide | QuestionSlide | PopupSlide
 
 interface SlideSetProps {
   slides: Slide[]
-  onComplete: (answers: Record<string, [string, string | number]>) => boolean
+  onComplete: (answers: Record<string, [string, string | number]>) => boolean | Promise<boolean>
   onBannerChange?: (headerBannerUrl?: string, footerBannerUrl?: string) => void
 }
 
@@ -120,7 +120,7 @@ export function SlideSet({ slides, onComplete, onBannerChange }: SlideSetProps) 
     return true
   }
 
-  const handleNext = () => {
+  const handleNext = async () => {
     // Don't proceed if we can't
     if (!canProceed) {
       // For questions, validate and show error
@@ -136,7 +136,7 @@ export function SlideSet({ slides, onComplete, onBannerChange }: SlideSetProps) 
     }
 
     if (isLastSlide) {
-      const result = onComplete(answers)
+      const result = await onComplete(answers)
       setIsSuccess(result)
       setShowThankYouModal(true)
     } else {

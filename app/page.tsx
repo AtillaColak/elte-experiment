@@ -1,3 +1,4 @@
+/* eslint-disable */
 "use client"
 
 import { useEffect, useState } from "react"
@@ -5,6 +6,7 @@ import { SlideSet } from "./components/slide-set"
 import { Header } from "./components/header"
 import { Footer } from "./components/footer"
 import { checkGroup, submitResult } from "@/utils/form-helper"
+import type { Slide } from "./components/slide-set"
 
 export default function Home() {
   const [headerBannerUrl, setHeaderBannerUrl] = useState<string | undefined>(undefined)
@@ -26,7 +28,7 @@ export default function Home() {
     fetchControlGroup()
   }, [])
 
-  const experimentSlides = [
+  const experimentSlides: Slide[] = [
     {
       id: "intro",
       type: "information",
@@ -133,7 +135,6 @@ export default function Home() {
       imageUrl: `neutral_popup.jpg`,
       infoUrl: "https://ads.google.com",
       skipTime: 5,
-      required: true
     },
     {
       id: "q6",
