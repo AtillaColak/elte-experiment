@@ -20,7 +20,7 @@ export function InformationModal({
   description,
   content,
   onNext,
-  nextButtonText = "Next",
+  nextButtonText = "Sonraki",
   headerBannerUrl,
   footerBannerUrl,
   showNextButton = true,

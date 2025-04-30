@@ -8,6 +8,7 @@ import { Question, type QuestionType, type Choice } from "./question"
 import { Popup } from "./popup"
 import { Button } from "@/components/ui/button"
 
+
 type SlideType = "information" | "question" | "popup"
 
 interface BaseSlide {
@@ -187,6 +188,7 @@ const handleAnswer = (id: string, answer: string | number) => {
   }
 
   const closeThankYouModal = () => {
+    window.location.href = "/"
     setShowThankYouModal(false)
   }
 
@@ -207,8 +209,8 @@ const handleAnswer = (id: string, answer: string | number) => {
 
   return (
     <div className="w-full max-w-4xl mx-auto h-full flex flex-col" ref={containerRef}>
-      <div className="flex-1 overflow-y-auto relative">
-        <div className="min-h-[calc(100%-4rem)] flex items-center justify-center">
+      <div className="flex-1 overflow-auto relative">
+        <div className="flex items-center justify-center">
           <AnimatePresence custom={direction} mode="wait">
             <motion.div
               key={currentSlideIndex}
@@ -221,7 +223,7 @@ const handleAnswer = (id: string, answer: string | number) => {
                 x: { type: "spring", stiffness: 200, damping: 25 }, // Slower transition
                 opacity: { duration: 0.5 }, // Longer fade duration
               }}
-              className="w-full p-4"
+              className="w-full p-4 inset-0 overflow-auto"
             >
               {currentSlide.type === "information" && (
                 <InformationModal
@@ -275,7 +277,7 @@ const handleAnswer = (id: string, answer: string | number) => {
       {/* Fixed navigation bar at the bottom */}
       <div className="p-4 flex justify-between items-center border-t bg-white">
         <Button variant="outline" onClick={handlePrevious} disabled={currentSlideIndex === 0}>
-          Previous
+          Önceki
         </Button>
 
         <div className="text-sm text-muted-foreground">
@@ -287,7 +289,7 @@ const handleAnswer = (id: string, answer: string | number) => {
           disabled={!canProceed}
           className={!canProceed ? "opacity-50 cursor-not-allowed" : ""}
         >
-          {isLastSlide ? "Finish" : "Next"}
+          {isLastSlide ? "Tamamla" : "Sonraki"}
         </Button>
       </div>
 
@@ -295,11 +297,11 @@ const handleAnswer = (id: string, answer: string | number) => {
       {showThankYouModal && (
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
           <div className="bg-white p-6 rounded-lg shadow-lg max-w-md w-full">
-            <h2 className="text-2xl font-bold mb-4">{isSuccess ? "Thank You!" : "Submission Failed"}</h2>
+            <h2 className="text-2xl font-bold mb-4">{isSuccess ? "Teşekkür Ederiz!" : "Hata Oluştu"}</h2>
             <p className="mb-6">
               {isSuccess
-                ? "Your survey has been successfully submitted. We appreciate your feedback!"
-                : "There was an issue submitting your survey. Please try again later."}
+                ? "Anketinizi başarıyla gönderdiniz. Katılımınız için teşekkür ederiz."
+                : "Anketinizi gönderirken bir hata oluştu. Lütfen tekrar deneyin."}
             </p>
             <div className="flex justify-end">
               <Button onClick={closeThankYouModal}>Close</Button>

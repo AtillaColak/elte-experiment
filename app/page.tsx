@@ -39,8 +39,8 @@ export default function Home() {
           <br>
           <p>Herhangi bir sorunuz veya endişeniz olursa, çalışmayı yürüten hocam Dr. Mihály Berkics'e <a href="mailto:berkics.mihaly@ppk.elte.hu">berkics.mihaly@ppk.elte.hu</a> adresinden ulaşabilirsiniz.</p>
       `,
-      headerBannerUrl: "/neutral-banner.jpg",
-      footerBannerUrl: "/neutral-banner.jpg",
+      headerBannerUrl: "/neutral-banner-2.png",
+      footerBannerUrl: "/neutral-banner-2.png",
     },
     {
       id: "demografik",
@@ -48,8 +48,8 @@ export default function Home() {
       title: "Demografi",
       description: "Lütfen bu bölümde verilen soruları size en uygun şıkkı seçerek yanıtlayın.",
       content: ``,
-      headerBannerUrl: "/neutral-banner.jpg",
-      footerBannerUrl: "/neutral-banner.jpg",
+      headerBannerUrl: "/neutral-banner-2.png",
+      footerBannerUrl: "/neutral-banner-2.png",
     },
     {
       id: "q1",
@@ -100,6 +100,7 @@ export default function Home() {
         { id: "feature3", text: "Arap" },
         { id: "feature4", text: "Diğer" },
       ],
+      required: true
     },
     {
       id: "q5",
@@ -247,7 +248,7 @@ export default function Home() {
     {
       id: "ad2",
       type: "popup",
-      imageUrl: `${isControl ? "neutral_popup.jpg" : "primed-popup.png"}`,
+      imageUrl: `${isControl ? "neutral-popup-2.jpg" : "primed-popup.png"}`,
       infoUrl: "https://ads.google.com",
       skipTime: 5,
     },
@@ -323,7 +324,7 @@ export default function Home() {
     {
       id: "ad3",
       type: "popup",
-      imageUrl: `${isControl ? "neutral_popup.jpg" : "primed-popup.png"}`,
+      imageUrl: `${isControl ? "neutral_popup.jpg" : "primed-popup-2.png"}`,
       infoUrl: "https://ads.google.com",
       skipTime: 5,
     },    
@@ -479,7 +480,7 @@ export default function Home() {
           />
         </div>
 
-        <div className="w-full max-w-4xl mx-auto bg-white rounded-xl shadow-md overflow-hidden h-[100vh] lg:h-[60vh] mt-24">
+        <div className="w-full max-w-4xl mx-auto bg-white rounded-xl shadow-md overflow-hidden mt-24">
           <SlideSet slides={experimentSlides} onComplete={handleComplete} onBannerChange={handleBannerChange} />
         </div>
       </main>
