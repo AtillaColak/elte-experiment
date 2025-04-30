@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
@@ -50,10 +50,17 @@ export function Question({
   showNextButton = true,
   error,
 }: QuestionProps) {
-  const initialAnswer = currentAnswer !== undefined ? currentAnswer : type === "scale" ? minValue : ""
-  const [answer, setAnswer] = useState<string | number>(initialAnswer)
+  
+  const [answer, setAnswer] = useState<string | number>(currentAnswer || "")
   const [localError, setLocalError] = useState<string>("")
 
+  useEffect(() => {
+      if (type === "scale") {
+        console.log("Setting default answer to minValue")
+        handleAnswer(minValue)
+      }
+  }, [])                   
+    
   const handleAnswer = (value: string | number) => {
     setAnswer(value)
     setLocalError("")
