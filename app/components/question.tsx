@@ -98,6 +98,7 @@ export function Question({
               value={[(answer as number) || minValue]}
               min={minValue}
               max={maxValue}
+              onClick={() => handleAnswer(answer as number || minValue)}
               step={1}
               onValueChange={(value) => handleAnswer(value[0])}
               className="my-6"
