@@ -53,13 +53,7 @@ export function Question({
   
   const [answer, setAnswer] = useState<string | number>(currentAnswer || "")
   const [localError, setLocalError] = useState<string>("")
-
-  useEffect(() => {
-      if (type === "scale") {
-        console.log("Setting default answer to minValue")
-        handleAnswer(minValue)
-      }
-  }, [])                   
+  const [clicked, setClicked] = useState(false)           
     
   const handleAnswer = (value: string | number) => {
     setAnswer(value)
