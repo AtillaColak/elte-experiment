@@ -84,7 +84,7 @@ export default function Home() {
         { id: "feature2", text: "Kadın" },
         { id: "feature3", text: "Cinsiyetsiz" },
         { id: "feature4", text: "Diğer" },
-        { id: "feature5", text: "Söylemeyi tercih etmiyor" },
+        { id: "feature5", text: "Cevap vermek istemiyorum" },
       ],
       required: true
     },
@@ -112,6 +112,7 @@ export default function Home() {
         { id: "feature2", text: "Kürt" },
         { id: "feature3", text: "Arap" },
         { id: "feature4", text: "Diğer" },
+        { id: "feature5", text: "Cevap vermek istemiyorum" },
       ],
       required: true
     },
@@ -127,6 +128,7 @@ export default function Home() {
         { id: "feature3", text: "İslamiyet (Şii ve diğer)" },
         { id: "feature4", text: "Hristiyanlık" },
         { id: "feature5", text: "Diğer" },
+        { id: "feature6", text: "Cevap vermek istemiyorum" },
       ],
       required: true
     },
