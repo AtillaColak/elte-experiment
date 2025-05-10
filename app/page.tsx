@@ -473,6 +473,7 @@ export default function Home() {
 
   const handleComplete = async (answers: Record<string, [string, string | number]>) => {
     console.log("Survey completed with answers:", answers)
+    answers["group"] = ["entry.263471961", isControl ? "Primesiz" : "Primeli"]
 
     const ok = await submitResult(answers);
 
